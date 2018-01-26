@@ -90,36 +90,29 @@ app.get("/api/:waitList?", function (req, res) {
 });
 
 // Create New Characters - takes in JSON input
-app.post("/api/:waitList?", function(req, res) {
+app.post("/api/addWaitList?", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body-parser middleware
-  var newWaitList = @waitList;
-  // Using a RegEx Pattern to remove spaces from newCharacter
-  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  newWaitList.routeName = newWaitList.name.replace(/\s+/g, "").toLowerCase();
-
+  var newWaitList = req.body;
   console.log(newWaitList);
 
-  characters.push(newWaitList);
+    waitList.push(newWaitList);
 
-// Create New Characters - takes in JSON input
-app.post("/api/:reservation?", function(req, res) {
-  // req.body hosts is equal to the JSON post sent from the user
-  // This works because of our body-parser middleware
-  var newReservation = @reservation;
-  // Using a RegEx Pattern to remove spaces from newCharacter
-  // You can read more about RegEx Patterns
-
-  res.json(newWaitList);
-  res.json(newReservation);
-}); later https://www.regexbuddy.com/regex.html
-  newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
-
-  console.log(newReservation);
-
-  characters.push(newReservation);
+    res.json(newWaitList);
 
 });
+
+// Create New Characters - takes in JSON input
+app.post("/api/addReservation?", function(req, res) {
+  // req.body hosts is equal to the JSON post sent from the user
+  // This works because of our body-parser middleware
+    var newReservation = req.body;
+    console.log(newReservation);
+
+    reservations.push(newReservation);
+
+    res.json(newReservation);
+}); 
 
 app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
