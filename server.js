@@ -62,15 +62,15 @@ app.get("/api/:reservation?", function (req, res) {
     var chosen = req.params.reservation;
     if (chosen) {
         console.log(chosen);
-        for (var i = 0; i < reservation.length; i++) {
+        for (var i = 0; i < reservations.length; i++) {
 
-            if (chosen === reservation[i].nameID) {
+            if (chosen === reservations[i].nameID) {
                 return res.json(reservation[i]);
             }
         }
         return res.json(false);
     }
-    return res.json(reservation);
+    return res.json(reservations);
 });
 
 app.get("/api/:waitList?", function (req, res) {
