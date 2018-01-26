@@ -65,8 +65,8 @@
 
                 var span = $("<span>");
                 span.addClass("label").addClass("label-primary");
-                span.html(i);
-                h2.text(" | " + data.nameid);
+                span.html(i+1);
+                h2.text(" | " + data.nameId);
                 h2.append(span)
                 div.append(h2)
                 $("#tableUse").append(div);
@@ -88,8 +88,8 @@
 
                 var span = $("<span>");
                 span.addClass("label").addClass("label-primary");
-                span.html(i);
-                h2.text(" | " + data.nameid);
+                span.html(i+1);
+                h2.text(" | " + data.nameId);
                 h2.append(span)
                 div.append(h2)
                 $("#waitlist").append(div);
@@ -104,7 +104,7 @@
             dinerName: $("#reserve-name").val().trim(),
             phoneNumber: $("#reserve-phone").val().trim(),
             email: $("#reserve-email").val().trim(),
-            nameid: $("#reserve-unique-id").val().trim().replace(/\s+/g, "").toLowerCase()
+            nameId: $("#reserve-unique-id").val().trim().replace(/\s+/g, "").toLowerCase()
         };
         console.log(arrReservation);
         console.log(arrWaitList);
