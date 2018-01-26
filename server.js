@@ -32,6 +32,21 @@ var reservations = [
     }
 ];
 
+var waitList = [
+    {
+        dinerName: 'Chris',
+        phoneNumber: '555-3434',
+        email: 'chris3434@gamil.com',
+        nameId: 'chris434'
+    },
+    {
+        dinerName: 'Jennifer',
+        phoneNumber: '555-6767',
+        email: 'jennifer6767@gamil.com',
+        nameId: 'jennifer6767'
+    }
+];
+
 
 app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
