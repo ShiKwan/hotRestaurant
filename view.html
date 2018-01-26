@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
     <html>
 
     <head>
@@ -6,8 +6,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Page Title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-        <script src="main.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -48,6 +46,85 @@
     <footer class="footer">
     </footer>
   </div>
+<script type="text/javascript">
+    var numWaitList = 0;
+    var arrWaitList = [];
+    var numReservation = 0;
+    var arrReservation = [];
+
+    $.get("/api/reservation", function (data) {
+        console.log(data);
+        console.log(data.length);
+        if (data) {
+            $("#tableUse").show();
+            for (var i = 0; i < data.length; i++) {
+                var div = $("div");
+                var h2 = $("h2");
+                div.addClass("well");
+                div.attr("id", "tableWell-0" + i + 1)
+
+                var span = $("span");
+                span.addClass("label").addClass("label-primary");
+                span.html(i);
+                h2.text(" | " + data.nameid);
+                h2.append(span)
+                div.append(h2)
+                $("#tableUse").append(div);
+                arrReservation.push(data[i]);
+            }
+        }
+    });
+
+    $.get("/api/waitList", function (data) {
+        console.log(data);
+        console.log(data.length);
+        if (data) {
+            $("#waitlist").show();
+            for (var i = 0; i < data.length; i++) {
+                var div = $("div");
+                var h2 = $("h2");
+                div.addClass("well");
+                div.attr("id", "tableWell-0" + i + 1)
+
+                var span = $("span");
+                span.addClass("label").addClass("label-primary");
+                span.html(i);
+                h2.text(" | " + data.nameid);
+                h2.append(span)
+                div.append(h2)
+                $("#waitlist").append(div);
+                arrWaitList.push(data[i]);
+            }
+        }
+    });
+
+    $(".submit").click(function () {
+        event.preventDefault();
+        var newReservation = {
+            dinerName: $("#reserve-name").val().trim(),
+            phoneNumber: $("#reserve-phone").val().trim(),
+            email: $("#reserve-email").val().trim(),
+            nameid: $("#reserve-unique-id").val().trim().replace(/\s+/g, "").toLowerCase()
+        };
+        console.log(arrReservation);
+        console.log(arrWaitList);
+        if (arrReservation < 5) {
+            $.post("/api/addReservation", newReservation)
+                .then(function (data) {
+                    console.log(data);
+                    alert("Adding reservation...");
+                });
+        } else {
+            $.post("/api/addWaitList", newReservation)
+                .then(function (data) {
+                    console.log(data);
+                    alert("Adding waitlist...");
+                });
+        }
+        // Question: What does this code do??
+
+    })
+</script>
 
 
     </body>

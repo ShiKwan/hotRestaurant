@@ -1,6 +1,7 @@
 // #tableuse -- for reservation
 
 // #waitlist -- for waitlist
+<script type="text/javascript">
 var numWaitList = 0;
 var arrWaitList = [];
 var numReservation = 0;
@@ -78,3 +79,4 @@ $(".submit").click(function(){
     // Question: What does this code do??
     
 })
+<script>
