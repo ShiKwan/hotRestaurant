@@ -22,7 +22,7 @@
       <div class="text-center">
         <a href="view"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
         <a href="add"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
-        <a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+        <a href=""><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
       </div>
     </div>
     <footer class="footer">
@@ -42,19 +42,22 @@
         console.log(data.length);
         if (data) {
             $("#tableUse").show();
-            for (var i = 0; i < data.length; i++) {
-                var div = $("div");
-                var h2 = $("h2");
-                div.addClass("well");
-                div.attr("id", "tableWell-0" + i + 1)
 
-                var span = $("span");
+            for (var i = 0; i < data.length; i++) {
+                var div = $("<div>");
+                var h2 = $("<h2>");
+                div.addClass("well");
+                div.attr("id", "tableWell-0" + (i + 1))
+
+                var span = $("<span>");
                 span.addClass("label").addClass("label-primary");
                 span.html(i);
                 h2.text(" | " + data.nameid);
                 h2.append(span)
                 div.append(h2)
-                $("#tableUse").append(div);
+                if($("#tableUse")){
+                    $("#tableUse").append(div);
+                }
                 arrReservation.push(data[i]);
             }
         }
@@ -66,18 +69,20 @@
         if (data) {
             $("#waitlist").show();
             for (var i = 0; i < data.length; i++) {
-                var div = $("div");
-                var h2 = $("h2");
+                var div = $("<div>");
+                var h2 = $("<h2>");
                 div.addClass("well");
                 div.attr("id", "tableWell-0" + i + 1)
 
-                var span = $("span");
+                var span = $("<span>");
                 span.addClass("label").addClass("label-primary");
                 span.html(i);
                 h2.text(" | " + data.nameid);
                 h2.append(span)
                 div.append(h2)
-                $("#waitlist").append(div);
+                if($("#waitlist")){
+                    $("#waitlist").append(div);
+                }
                 arrWaitList.push(data[i]);
             }
         }

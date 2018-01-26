@@ -71,12 +71,12 @@
     if (data) {
       $("#tableUse").show();
       for (var i = 0; i < data.length; i++) {
-        var div = $("div");
-        var h2 = $("h2");
+        var div = $("<div>");
+        var h2 = $("<h2>");
         div.addClass("well");
         div.attr("id", "tableWell-0" + i + 1)
 
-        var span = $("span");
+        var span = $("<span>");
         span.addClass("label").addClass("label-primary");
         span.html(i);
         h2.text(" | " + data.nameid);
@@ -94,12 +94,12 @@
     if (data) {
       $("#waitlist").show();
       for (var i = 0; i < data.length; i++) {
-        var div = $("div");
-        var h2 = $("h2");
+        var div = $("<div>");
+        var h2 = $("<h2>");
         div.addClass("well");
         div.attr("id", "tableWell-0" + i + 1)
 
-        var span = $("span");
+        var span = $("<span>");
         span.addClass("label").addClass("label-primary");
         span.html(i);
         h2.text(" | " + data.nameid);
