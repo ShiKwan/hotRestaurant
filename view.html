@@ -60,14 +60,14 @@
             for (var i = 0; i < data.length; i++) {
                 var div = $("<div>");
                 var span1 = $("<span>");
-                div.addClass("well");
+                div.addClass("well h2");
                 div.attr("id", "tableWell-0" + i + 1)
 
                 var span = $("<span>");
                 span.addClass("label").addClass("label-primary");
                 span.html(i+1);
-                span1.text(" | " + data[i].nameId);
-                span1.append(span)
+                span.append(" | " + span1);
+                span1.text(data[i].nameId);
                 div.append(span1)
                 $("#tableuse").append(div);
                 arrReservation.push(data[i]);
