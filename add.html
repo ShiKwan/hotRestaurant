@@ -121,7 +121,8 @@
     };
     console.log(arrReservation);
     console.log(arrWaitList);
-    if (arrReservation < 5) {
+
+    if (arrReservation.length < 5) {
       console.log("added to reservation table");
       $.post("/api/addReservation", newReservation)
         .then(function (data) {
