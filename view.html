@@ -66,9 +66,9 @@
                 var span = $("<span>");
                 span.addClass("label").addClass("label-primary");
                 span.html(i+1);
-                span.append(" | " + span1);
                 span1.text(data[i].nameId);
-                div.append(span1)
+                span.append(" | " + span1);
+                div.append(span)
                 $("#tableuse").append(div);
                 arrReservation.push(data[i]);
             }
