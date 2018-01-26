@@ -56,7 +56,7 @@
         console.log(data);
         console.log(data.length);
         if (data) {
-            $("#tableUse").show();
+            $("#tableuse").show();
             for (var i = 0; i < data.length; i++) {
                 var div = $("<div>");
                 var h2 = $("<h2>");
@@ -66,10 +66,10 @@
                 var span = $("<span>");
                 span.addClass("label").addClass("label-primary");
                 span.html(i+1);
-                h2.text(" | " + data.nameId);
+                h2.text(" | " + data[i].nameId);
                 h2.append(span)
                 div.append(h2)
-                $("#tableUse").append(div);
+                $("#tableuse").append(div);
                 arrReservation.push(data[i]);
             }
         }
@@ -89,7 +89,7 @@
                 var span = $("<span>");
                 span.addClass("label").addClass("label-primary");
                 span.html(i+1);
-                h2.text(" | " + data.nameId);
+                h2.text(" | " + data[i].nameId);
                 h2.append(span)
                 div.append(h2)
                 $("#waitlist").append(div);

@@ -41,7 +41,7 @@
         console.log(data);
         console.log(data.length);
         if (data) {
-            $("#tableUse").show();
+            $("#tableuse").show();
 
             for (var i = 0; i < data.length; i++) {
                 var div = $("<div>");
@@ -52,11 +52,11 @@
                 var span = $("<span>");
                 span.addClass("label").addClass("label-primary");
                 span.html(i+1);
-                h2.text(" | " + data.nameId);
+                h2.text(" | " + data[i].nameId);
                 h2.append(span)
                 div.append(h2)
-                if($("#tableUse")){
-                    $("#tableUse").append(div);
+                if($("#tableuse")){
+                    $("#tableuse").append(div);
                 }
                 arrReservation.push(data[i]);
             }
@@ -70,16 +70,16 @@
             $("#waitlist").show();
             for (var i = 0; i < data.length; i++) {
                 var div = $("<div>");
-                var h2 = $("<h2>");
-                div.addClass("well");
+                var span1 = $("<span1>");
+                div.addClass("well").addCladd("h2");
                 div.attr("id", "tableWell-0" + i + 1)
 
                 var span = $("<span>");
                 span.addClass("label").addClass("label-primary");
                 span.html(i+1);
-                h2.text(" | " + data.nameId);
-                h2.append(span)
-                div.append(h2)
+                span1.text(" | " + data[i].nameId);
+                span1.append(span)
+                div.append(span1)
                 if($("#waitlist")){
                     $("#waitlist").append(div);
                 }
