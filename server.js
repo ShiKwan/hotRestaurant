@@ -58,7 +58,7 @@ app.get("/view", function (req, res) {
     res.sendFile(path.join(__dirname, "view.html"));
 });
 
-app.get("/api/:reservation?", function (req, res) {
+app.get("/api/reservation/:reservation?", function (req, res) {
     var chosen = req.params.reservation;
     if (chosen) {
         console.log(chosen);
@@ -73,7 +73,7 @@ app.get("/api/:reservation?", function (req, res) {
     return res.json(reservations);
 });
 
-app.get("/api/:waitList?", function (req, res) {
+app.get("/api/waitlist/:waitList?", function (req, res) {
     var chosen = req.params.waitList;
     if (chosen) {
         console.log(chosen);
