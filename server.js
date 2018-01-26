@@ -63,6 +63,7 @@ app.get("/api/:reservation?", function (req, res) {
     if (chosen) {
         console.log(chosen);
         for (var i = 0; i < reservation.length; i++) {
+
             if (chosen === reservation[i].nameID) {
                 return res.json(reservation[i]);
             }
@@ -77,7 +78,9 @@ app.get("/api/:waitList?", function (req, res) {
     if (chosen) {
         console.log(chosen);
         for (var i = 0; i < waitList.length; i++) {
+
             if (chosen === waitList[i].nameId) {
+
                 return res.json(waitList[i]);
             }
         }
@@ -117,8 +120,6 @@ app.post("/api/:reservation?", function(req, res) {
   characters.push(newReservation);
 
 });
-
-
 
 app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
