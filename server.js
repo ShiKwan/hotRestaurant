@@ -64,7 +64,7 @@ app.get("/api/reservation/:reservation?", function (req, res) {
         console.log(chosen);
         for (var i = 0; i < reservations.length; i++) {
 
-            if (chosen === reservations[i].nameID) {
+            if (chosen === reservations[i].nameId) {
                 return res.json(reservation[i]);
             }
         }
