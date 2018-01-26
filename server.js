@@ -47,6 +47,47 @@ var waitList = [
     }
 ];
 
+app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
+app.get("/add", function (req, res) {
+    res.sendFile(path.join(__dirname, "add.html"));
+});
+
+app.get("/view", function (req, res) {
+    res.sendFile(path.join(__dirname, "view.html"));
+});
+
+app.get("/api/:reservation?", function (req, res) {
+    var chosen = req.params.reservation;
+    if (chosen) {
+        console.log(chosen);
+        for (var i = 0; i < reservation.length; i++) {
+            if (chosen === reservation[i].routeName) {
+                return res.json(reservation[i]);
+            }
+        }
+        return res.json(false);
+    }
+    return res.json(reservation);
+});
+
+app.get("/api/:waitList?", function (req, res) {
+    var chosen = req.params.waitList;
+    if (chosen) {
+        console.log(chosen);
+        for (var i = 0; i < waitList.length; i++) {
+            if (chosen === waitList[i].routeName) {
+                return res.json(waitList[i]);
+            }
+        }
+        return res.json(false);
+    }
+    return res.json(waitList);
+});
+
+
+
 
 app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
