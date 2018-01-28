@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/ShiKwan/hotRestaurant/issues"
   },
-  "homepage": "https://github.com/ShiKwan/hotRestaurant#readme"
+  "homepage": "https://github.com/ShiKwan/hotRestaurant#readme",
+   "scripts": {
+   "start": "node server.js"
+ }
 }
